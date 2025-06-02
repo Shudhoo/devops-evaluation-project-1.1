@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: proj-deployment
-  namespace: my_net
+  namespace: my-net
   labels:
-    app: project1
+    app: project1-dep
 spec:
   selector:
     matchLabels:
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: my_container
-        image: capstonee1:latestt
+        image: shudhodhan/testrepo:REPLACE_TAG
         ports:
-        - containerPort: 85
+        - containerPort: 80
