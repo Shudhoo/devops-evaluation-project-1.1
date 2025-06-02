@@ -15,7 +15,7 @@ spec:
         app: myapp
     spec:
       containers:
-      - name: my_container
+      - name: my-container
         image: shudhodhan/testrepo:REPLACE_TAG
         ports:
         - containerPort: 80
