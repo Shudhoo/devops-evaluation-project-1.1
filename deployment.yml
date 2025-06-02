@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proj-deployment
+  namespace: my_net
+  labels:
+    app: project1
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: my_container
+        image: capstonee1:latestt
+        ports:
+        - containerPort: 85
