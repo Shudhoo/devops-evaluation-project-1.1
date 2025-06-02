@@ -1,0 +1,20 @@
+pipeline {
+    agent {
+        label 'k8s-master'
+    }
+    parameters {
+        string(name: 'IMAGE_TAG', defaultValue: '', description: 'Docker image tag')
+    }
+
+    stages {
+        stage('Kubernetes-Deployments') {
+            steps {
+                dir('/home/ubuntu/workspace/test-job'){
+                       sh "sed -i 's|REPLACE_TAG|${IMAGE_TAG}|g' deployment.yml"
+                       sh "kubectl apply -f deployment.yml"
+                       sh "kubectl apply -f service.yml"
+                }
+            }
+        }
+    }
+}
